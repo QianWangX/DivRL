@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+.eggs/
+
+# Dataset & checkpoints
+logs/
+
+# SLURM / job outputs
+flow_grpo/dcgm/
+*.out
+*.err
+
+# Env
+.env
+*.env
+
+# Editor
+.vscode/
+.idea/
