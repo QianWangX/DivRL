@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beyond Pixel Mimicry</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/iosevka-charon@5/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <style>
+    body { font-family: 'Noto Sans', sans-serif; }
+    .title, .subtitle, .author-block { font-family: 'Google Sans', sans-serif; }
+
+    .hero-body { padding-top: 3rem; padding-bottom: 2rem; }
+
+    .publication-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .publication-authors {
+      font-size: 1.15rem;
+    }
+
+    .publication-venue {
+      font-size: 1rem;
+    }
+
+    .link-block a {
+      margin: 0.25rem;
+    }
+
+    section.section { padding: 3rem 1.5rem; }
+
+    .teaser-caption {
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 1rem;
+    }
+
+    .method-caption {
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 1rem;
+    }
+
+    hr.divider {
+      background-color: #ddd;
+      height: 1px;
+      margin: 0;
+    }
+
+    .comparison-placeholder {
+      background: #f5f5f5;
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      padding: 4rem 2rem;
+      text-align: center;
+      color: #aaa;
+      font-size: 1.1rem;
+    }
+
+    footer.footer { background-color: #f5f5f5; padding: 2rem 1.5rem; }
+    footer .content p { font-size: 0.85rem; color: #777; }
+  </style>
+</head>
+
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <h1 class="title is-2 publication-title">
+            Beyond Pixel Mimicry: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation
+          </h1>
+
+          <!-- Authors -->
+          <div class="is-size-5 publication-authors" style="margin-top: 1.5rem; margin-bottom: 0.5rem;">
+            <span class="author-block">Qian Wang<sup>1</sup>,</span>
+            <span class="author-block">Zhenyu Li<sup>1</sup>,</span>
+            <span class="author-block">Abdelrahman Eldesokey<sup>1</sup></span>
+            <span class="author-block">Peter Wonka<sup>1</sup></span>
+          </div>
+
+          <!-- Affiliations -->
+          <div class="is-size-6 publication-authors" style="color: #555; margin-bottom: 1rem;">
+            <span class="author-block"><sup>1</sup>KAUST</span>
+          </div>
+
+          <!-- Venue -->
+          <div class="is-size-6 publication-venue" style="color: #777; margin-bottom: 1.5rem;">
+            <span><em>Conference / Journal Name, Year</em></span>
+          </div>
+
+          <!-- Links -->
+          <div class="link-block buttons is-centered">
+            <a class="button is-dark is-rounded" href="#">
+              <span class="icon"><i class="fas fa-file-pdf"></i></span>
+              <span>Paper</span>
+            </a>
+            <a class="button is-dark is-rounded" href="#">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code</span>
+            </a>
+            <a class="button is-dark is-rounded" href="#">
+              <span class="icon"><i class="ai ai-arxiv"></i></span>
+              <span>arXiv</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEASER ===== -->
+<section class="section" style="padding-top: 1rem; padding-bottom: 2rem;">
+  <div class="container is-max-desktop">
+    <figure class="image">
+      <img src="assets/teaser.png" alt="Teaser figure">
+    </figure>
+    <p class="teaser-caption has-text-centered">
+      <b>Teaser.</b> 
+    </p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== ABSTRACT ===== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We propose a post-training framework called <strong>DivRL</strong> that jointly 
+            optimizes identity consistency and structural diversity simultaneously 
+            by leveraging disentangled visual features from a robust similarity model.
+            Specifically, we introduce a Negative Self-Similarity Measure (nSSM) to quantify structural diversity, 
+            and Visual Semantic Matching (VSM) to evaluate identity consistency. 
+            We propose an ""Explore-and-Suppress" strategy that treats VSM as a gated constraint: 
+            the model freely explores structurally diverse configurations, 
+            and only samples that violate the identity threshold are penalized via a quadratic hinge loss. 
+            This converts identity preservation from a competing objective into a feasibility constraint, 
+            allowing nSSM and VSM to improve jointly.
+            Experiments demonstrate that our method effectively pushes the model to generate 
+            both consistent and diverse images and improves structural diversity 
+            while maintaining comparable identity consistency through a gated optimization formulation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== METHOD ===== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+    <figure class="image">
+      <img src="assets/method.png" alt="Method overview">
+    </figure>
+    <p class="method-caption has-text-centered">
+      <b>Method overview.</b> 
+      To quantify diversity, we introduce Negative Self-Similarity Measure (nSSM), 
+      while Visual Semantic Matching (VSM) is used to evaluate identity consistency.
+      Our two-stage optimization uses a quadratic hinge loss to penalize identity drift, 
+      forcing the model to explore desirable latent spaces 
+      where structural novelty and identity coexist. 
+      During the exploration stage, the model is allowed to freely explore images with high structural diversity,
+      while during the suppression stage, the generation with high identity drift is penalized to suppress undesirable exploration.
+    </p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== VISUAL COMPARISON ===== -->
+<section class="section" id="comparison" style="background: #fafafa;">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Visual Comparison</h2>
+    <p class="has-text-centered" style="color:#888; margin-bottom:2.5rem; font-size:0.92rem;">
+      Click <strong>◀ ▶</strong> to cycle through methods. Results highlighted in
+      <span style="color:#c0392b; font-weight:700;">red</span> are ours.
+    </p>
+    <div class="comp-grid" id="comp-grid"></div>
+  </div>
+</section>
+
+<style>
+  /* ---- Grid ---- */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+  }
+
+  /* ---- Card ---- */
+  .comp-cell {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s;
+  }
+  .comp-cell:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+  }
+
+  /* ---- Caption ---- */
+  .comp-caption {
+    font-family: 'Iosevka Charon', monospace;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #444;
+    text-align: center;
+    padding: 0 0.8rem;
+    line-height: 1.4;
+    height: calc(2 * 1.4em + 1.15rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .comp-caption > span {
+    display: block;
+    width: 100%;
+  }
+  .comp-caption strong {
+    font-family: inherit;
+    font-style: inherit;
+  }
+
+  /* ---- Panels ---- */
+  .comp-panels {
+    display: flex;
+    gap: 0;
+    flex: 1;
+  }
+
+  .comp-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .comp-panel + .comp-panel {
+    border-left: 2px solid #f0f0f0;
+  }
+
+  .comp-panel img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ---- Input label ---- */
+  .panel-label {
+    font-size: 0.68rem;
+    text-align: center;
+    color: #aaa;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background: #fafafa;
+    flex-shrink: 0;
+  }
+
+  /* ---- Result wrapper ---- */
+  .result-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .result-wrapper img {
+    transition: opacity 0.18s ease;
+  }
+  .result-wrapper img.fading { opacity: 0; }
+
+  /* ---- Method badge ---- */
+  .method-badge {
+    position: absolute;
+    bottom: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(30,30,30,0.62);
+    color: #fff;
+    font-size: 0.62rem;
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 2px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 2;
+    transition: background 0.18s;
+  }
+  .method-badge.ours {
+    background: rgba(192, 57, 43, 0.82);
+  }
+
+  /* ---- Nav row ---- */
+  .nav-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    padding: 0;
+    margin: 0;
+    background: #fafafa;
+    flex-shrink: 0;
+  }
+
+  .nav-btn {
+    background: #ececec;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 0.65rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, transform 0.1s;
+    color: #555;
+  }
+  .nav-btn:hover { background: #d4d4d4; transform: scale(1.1); }
+  .nav-btn:active { transform: scale(0.95); }
+
+  .nav-dots { display: flex; gap: 4px; align-items: center; }
+
+  .nav-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #d0d0d0;
+    transition: background 0.18s, transform 0.18s;
+  }
+  .nav-dot.active {
+    background: #c0392b;
+    transform: scale(1.25);
+  }
+
+  @media (max-width: 900px) {
+    .comp-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .comp-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+(function () {
+  const examples = [
+    { id: '10', suffix: '10_4', caption: '"A photograph of a fox <strong>crouched</strong> in a lush green meadow, alert and watching"' },
+    { id: '12', suffix: '12_9', caption: '"A samurai walking through a portal that leads to a futuristic cityscape"' },
+    { id: '13', suffix: '13_2', caption: '"A photograph of a girl riding a bicycle through a quiet village"' },
+    { id: '17', suffix: '17_3', caption: '"A photo of a bicycle covered in autumn leaves on a cobblestone path"' },
+    { id: '18', suffix: '18_5', caption: '"A robot depicted in a steampunk style, with intricate bronze gears and steam pipes"' },
+    { id: '21', suffix: '21_3', caption: '"A photograph of a vintage van traveling through a colorful autumn forest"' },
+    { id: '42', suffix: '42_1', caption: '"A photo of a wooden hut nestled among snow-covered pines"' },
+    { id: '56', suffix: '56_5', caption: '"A digital painting of a clock <strong>melting</strong> over surreal, dreamlike landscapes"' },
+    { id: '62', suffix: '62_6', caption: '"An ink sketch of a rustic boat tied to an old wooden dock"' },
+  ];
+
+  const methods = [
+    { key: 'flux', label: 'Flux-Kontext' },
+    { key: 'paco', label: 'Paco-RL' },
+    { key: 'ours', label: 'DivRL (Ours)', isOurs: true },
+  ];
+
+  const grid = document.getElementById('comp-grid');
+
+  examples.forEach(function (ex) {
+    const cell = document.createElement('div');
+    cell.className = 'comp-cell';
+
+    // Caption
+    const cap = document.createElement('p');
+    cap.className = 'comp-caption';
+    cap.innerHTML = '<span>' + ex.caption + '</span>';
+    cell.appendChild(cap);
+
+    // Panels
+    const panels = document.createElement('div');
+    panels.className = 'comp-panels';
+
+    // Input panel
+    const inputPanel = document.createElement('div');
+    inputPanel.className = 'comp-panel';
+    const inputImg = document.createElement('img');
+    inputImg.src = 'assets/comparison/input/' + ex.id + '.jpg';
+    inputImg.alt = 'Input';
+    inputPanel.appendChild(inputImg);
+    const inputLabel = document.createElement('p');
+    inputLabel.className = 'panel-label';
+    inputLabel.textContent = 'Input';
+    inputPanel.appendChild(inputLabel);
+    panels.appendChild(inputPanel);
+
+    // Result panel
+    const resultPanel = document.createElement('div');
+    resultPanel.className = 'comp-panel';
+    resultPanel.dataset.idx = '0';
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'result-wrapper';
+
+    const resultImg = document.createElement('img');
+    resultImg.src = 'assets/comparison/' + methods[0].key + '/' + ex.suffix + '.png';
+    resultImg.alt = methods[0].label;
+    wrapper.appendChild(resultImg);
+
+    const badge = document.createElement('span');
+    badge.className = 'method-badge';
+    badge.textContent = methods[0].label;
+    wrapper.appendChild(badge);
+
+    resultPanel.appendChild(wrapper);
+
+    // Nav
+    const navRow = document.createElement('div');
+    navRow.className = 'nav-row';
+
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'nav-btn';
+    prevBtn.innerHTML = '&#9664;';
+    prevBtn.setAttribute('aria-label', 'Previous method');
+
+    const dots = document.createElement('div');
+    dots.className = 'nav-dots';
+    methods.forEach(function (m, i) {
+      const dot = document.createElement('div');
+      dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+      dots.appendChild(dot);
+    });
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'nav-btn';
+    nextBtn.innerHTML = '&#9654;';
+    nextBtn.setAttribute('aria-label', 'Next method');
+
+    navRow.appendChild(prevBtn);
+    navRow.appendChild(dots);
+    navRow.appendChild(nextBtn);
+    resultPanel.appendChild(navRow);
+
+    panels.appendChild(resultPanel);
+    cell.appendChild(panels);
+    grid.appendChild(cell);
+
+    function update(idx) {
+      const m = methods[idx];
+      resultImg.classList.add('fading');
+      setTimeout(function () {
+        resultImg.src = 'assets/comparison/' + m.key + '/' + ex.suffix + '.png';
+        resultImg.alt = m.label;
+        badge.textContent = m.label;
+        badge.className = 'method-badge' + (m.isOurs ? ' ours' : '');
+        resultImg.classList.remove('fading');
+      }, 90);
+      dots.querySelectorAll('.nav-dot').forEach(function (d, i) {
+        d.classList.toggle('active', i === idx);
+      });
+      resultPanel.dataset.idx = idx;
+    }
+
+    prevBtn.addEventListener('click', function () {
+      update((parseInt(resultPanel.dataset.idx) - 1 + methods.length) % methods.length);
+    });
+    nextBtn.addEventListener('click', function () {
+      update((parseInt(resultPanel.dataset.idx) + 1) % methods.length);
+    });
+  });
+})();
+</script>
+
+<!-- ===== CITATION ===== -->
+<section class="section" style="padding-bottom: 1rem;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <pre style="
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      overflow-x: auto;
+      text-align: left;
+    "><code>@article{wang2025divrl,
+  title     = {Beyond Pixel Mimicry: Disentangled Self-Similarity Rewards
+               for Diverse Subject-Driven Generation},
+  author    = {Wang, Qian and Li, Zhenyu and Eldesokey, Abdelrahman and Wonka, Peter},
+  journal   = {arXiv preprint arXiv:2500.00000},
+  year      = {2025}
+}</code></pre>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Acknowledgement: this page template is adapted from
+        <a href="https://nerfies.github.io">Nerfies</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
