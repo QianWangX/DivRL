@@ -1,10 +1,8 @@
 # 🎨 Beyond Pixel Mimicry: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation
-This is the official implementation of paper **Beyond Pixel Mimicry: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation**.
-[![arXiv](https://img.shields.io/badge/arXiv-<2500.00000>-<COLOR>.svg)](https://arxiv.org/abs/2500.00000)
-:rocket: [Project page](https://qianwangx.github.io/DivRL/)
-![Teaser](./assets/teaser_editclip.png)
+This is the official implementation of paper 
+paper link: ___   project page: ____
 
-We propose a post-training RL framework **DivRL** that jointly optimizes identity consistency and structural diversity simultaneously by leveraging disentangled visual features from a robust similarity model MTG.
+We propose a post-training RL framework that jointly optimizes identity consistency and structural diversity simultaneously by leveraging disentangled visual features from a robust similarity model MTG.
 
 ## 1. Set up environment
 First set up the environment for DivRL:
