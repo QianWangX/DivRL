@@ -42,10 +42,10 @@ reward  # for reward server
 ```
 
 ## 2. Dataset preparation
-You can download the dataset directly from _____. 
+The dataset is stored in the HF repo [QWW/Syncd_filtered](https://huggingface.co/datasets/QWW/Syncd_filtered). The dataset can be automatically downloaded once the training starts. 
 
 ## 3. Two-stage Training
-with pretrained weight download
+We provide the pretrained LoRA weights at [here](https://huggingface.co/QWW/DivRL). Stage 1 is training with nSSM only; Stage 2 is training with nSSM as the main objective, while VSM serves as a consistency gate.
 
 We report the training setup on 8A100 80GB GPUs. We use the first GPU to hold the remote servers, and rest of the sever GPUs are for RL training. 
 We first launch the reward server:
@@ -53,7 +53,7 @@ We first launch the reward server:
 cd mind-the-glitch
 NUM_WORKERS=3 bash run_mtg_server_lb.sh
 ```
-Please adjust `NUM_WORKERS` based on the VRAM of your GPU. If the VRAM of your GPU is less than 40GB, we recommend you to run the following instead:
+Please adjust `NUM_WORKERS` based on the VRAM of your GPU. If the VRAM of your GPU is less than 40GB, we recommend you to run the following instead to initiate only one server worker on the GPU:
 ```
 cd mind-the-glitch
 python mtg_server.py
@@ -89,4 +89,18 @@ After the training is finished, you can find the LoRA weights under the default 
 python scripts/inference.py --image_path PATH_TO_YOUR_REF_IMAGE --prompt TEXT_PROMPT --lora_path SAVED_LORA_PATH
 ```
 
-Citation
+Please find more parameter settings in `scripts/inference.py`. Alternatively, if you wish to use the pretrained weights, you can also directly run:
+```
+python scripts/inference.py --image_path PATH_TO_YOUR_REF_IMAGE --prompt TEXT_PROMPT
+```
+
+## Citation
+If you find this work useful, please cite:
+```bibtex
+@article{wang2025divrl,
+  title     = {Beyond Pixel Mimicry: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation},
+  author    = {Wang, Qian and Li, Zhenyu and Eldesokey, Abdelrahman and Wonka, Peter},
+  journal   = {arXiv preprint arXiv:2500.00000},
+  year      = {2025}
+}
+```
