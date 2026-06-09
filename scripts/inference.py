@@ -11,9 +11,23 @@ def main(args):
     pipe.to(args.device)
     
     if args.lora_path:
-        pipe.transformer = PeftModel.from_pretrained(pipe.transformer, args.lora_path)
+        if "/" in args.lora_path and not os.path.isdir(args.lora_path):
+            # Example format for args.lora_path: "your_username/my-private-lora"
+            # We explicitly pass the subfolder and the auth token
+            print(f"Loading private remote LoRA from Hub repo: {args.lora_path} (subfolder: {args.selected_lora})")
+            
+            pipe.transformer = PeftModel.from_pretrained(
+                pipe.transformer, 
+                args.lora_path,
+                subfolder=args.selected_lora,  
+            )
+        else:
+            # Fallback to your original local folder logic
+            print("Loading local LoRA weights from local folder:", args.lora_path)
+            pipe.transformer = PeftModel.from_pretrained(pipe.transformer, args.lora_path)
+            
         pipe.transformer = pipe.transformer.merge_and_unload()
-        print("Loaded LoRA weights from", args.lora_path)
+        print("Successfully loaded and merged LoRA weights.")
 
     input_image = load_image(args.image_path)
     prompt = args.prompt
@@ -40,6 +54,8 @@ if __name__ == "__main__":
     parser.add_argument("--prompt", type=str, required=True, help="the prompt to guide the generation.")
     parser.add_argument("--lora_path", type=str, default=None,
                         help="path to the LoRA weights to load.")
+    parser.add_argument("--selected_lora", type=str, default="stage_2",
+                        help="the subfolder name of the LoRA weights to load.")
     parser.add_argument("--is_use_mask", action='store_true',
                         help="whether to use masks to extract the reference object.")
     parser.add_argument("--output_folder", type=str, default="./output_folder",
