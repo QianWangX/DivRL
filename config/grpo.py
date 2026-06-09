@@ -20,15 +20,13 @@ def compressibility():
 def mtg_flux_kontext_syncd_1gpu():
     gpu_number=1
     config = compressibility()
-    config.dataset = "dataset/syncd/"
     config.dataset_type = "subject_driven"
-    config.dataset_name = "dreambench_plus"
+    config.dataset_name = "QWW/Syncd_filtered"
     config.dataset_total_samples=25
     config.train_as_val=True
     config.dataset_num_val = 3
     config.dataset_val_prompt_k = 3
     config.dataset_num_test = 1
-    config.dataset_invalid_id_path = "dataset/syncd/invalid_id.txt"
     # Flux-Kontext
     config.pretrained.model = "black-forest-labs/FLUX.1-Kontext-dev"
     config.sample.num_steps = 6
@@ -78,13 +76,11 @@ def mtg_flux_kontext_syncd_1gpu():
 def divrl_flux_kontext_syncd_7gpu_stage_1():
     gpu_number=7
     config = compressibility()
-    config.dataset = "dataset/syncd/"
     config.dataset_type = "subject_driven"
-    config.dataset_name = "dreambench_plus"
+    config.dataset_name = "QWW/Syncd_filtered"
     config.dataset_num_val = 50
     config.dataset_val_prompt_k = 3
     config.dataset_num_test = 500
-    config.dataset_invalid_id_path = "dataset/syncd/invalid_id.txt"
     # Flux-Kontext
     config.pretrained.model = "black-forest-labs/FLUX.1-Kontext-dev"
     config.sample.num_steps = 6
@@ -127,13 +123,11 @@ def divrl_flux_kontext_syncd_7gpu_stage_1():
 def divrl_flux_kontext_syncd_7gpu_stage_2():
     gpu_number=7
     config = compressibility()
-    config.dataset = "dataset/syncd/"
     config.dataset_type = "subject_driven"
-    config.dataset_name = "dreambench_plus"
+    config.dataset_name = "QWW/Syncd_filtered"
     config.dataset_num_val = 50
     config.dataset_val_prompt_k = 3
     config.dataset_num_test = 500
-    config.dataset_invalid_id_path = "dataset/syncd/invalid_id.txt"
     # Flux-Kontext
     config.pretrained.model = "black-forest-labs/FLUX.1-Kontext-dev"
     config.sample.num_steps = 6

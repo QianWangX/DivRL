@@ -39,7 +39,6 @@ from torch.utils.data import Dataset, DataLoader, Sampler
 import torch.distributed as dist
 from flow_grpo.ema import EMAModuleWrapper
 from dataset.subject_driven_dataset import SubjectDrivenDataset
-from dataset.utils import extract_and_transform_pil
 
 
 
@@ -527,20 +526,22 @@ def main(_):
     if "dataset_type" in config and config.dataset_type == "subject_driven":
         assert "dataset_name" in config
         print("---------------Using SubjectDrivenDataset-----------------")
-        train_dataset = SubjectDrivenDataset(config.dataset, dataset_name=config.dataset_name, split='train',
+        train_dataset = SubjectDrivenDataset(
+                                                dataset_name=config.dataset_name, split='train',
                                                 total_samples=config.get('dataset_total_samples', None),
                                                 train_as_val=config.get('dataset_train_as_val', False),
                                                 num_val=config.get('dataset_num_val', None),
                                                 val_prompt_k=config.get('dataset_val_prompt_k', 3),
                                                 num_test=config.get('dataset_num_test', None),
-                                                invalid_id_path=config.get('dataset_invalid_id_path', None),)
-        test_dataset = SubjectDrivenDataset(config.dataset, dataset_name=config.dataset_name, split='val',  
+                                            )
+        test_dataset = SubjectDrivenDataset(    
+                                                dataset_name=config.dataset_name, split='val',  
                                                 total_samples=config.get('dataset_total_samples', None),
                                                 train_as_val=config.get('dataset_train_as_val', False),
                                                 num_val=config.get('dataset_num_val', None),
                                                 val_prompt_k=config.get('dataset_val_prompt_k', 3),
                                                 num_test=config.get('dataset_num_test', None),
-                                                invalid_id_path=config.get('dataset_invalid_id_path', None),)
+                                            )
         
         train_sampler = DistributedKRepeatSampler( 
             dataset=train_dataset,
