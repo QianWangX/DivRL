@@ -52,7 +52,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--image_path", type=str, required=True, help="path to the input image.")
     parser.add_argument("--prompt", type=str, required=True, help="the prompt to guide the generation.")
-    parser.add_argument("--lora_path", type=str, default=None,
+    parser.add_argument("--lora_path", type=str, default="QWW/DivRL",
                         help="path to the LoRA weights to load.")
     parser.add_argument("--selected_lora", type=str, default="stage_2",
                         help="the subfolder name of the LoRA weights to load.")
