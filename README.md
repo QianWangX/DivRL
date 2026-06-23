@@ -1,5 +1,5 @@
-# 🎨 Beyond Pixel Mimicry: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation
-This is the official implementation of paper **Beyond Pixel Mimicry: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation**
+# 🎨 DivRL: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation
+This is the official implementation of paper **DivRL: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation**
 [![arXiv](https://img.shields.io/badge/arXiv-<2500.00000>-<COLOR>.svg)](https://arxiv.org/abs/2500.00000)
 :rocket: [Project page](https://qianwangx.github.io/DivRL/)
 
