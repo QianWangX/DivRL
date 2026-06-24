@@ -98,7 +98,7 @@ python scripts/inference.py --image_path PATH_TO_YOUR_REF_IMAGE --prompt TEXT_PR
 ## Citation
 If you find this work useful, please cite:
 ```bibtex
-@article{wang2025divrl,
+@article{wang2026divrl,
   title     = {DivRL: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation},
   author    = {Wang, Qian and Li, Zhenyu and Eldesokey, Abdelrahman and Wonka, Peter},
   journal   = {arXiv preprint arXiv:2606.23950},
