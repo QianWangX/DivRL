@@ -1,6 +1,6 @@
 # 🎨 DivRL: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation
 This is the official implementation of paper **DivRL: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation**
-[![arXiv](https://img.shields.io/badge/arXiv-<2500.00000>-<COLOR>.svg)](https://arxiv.org/abs/2500.00000)
+[![arXiv](https://img.shields.io/badge/arXiv-<2606.23950>-<COLOR>.svg)](https://arxiv.org/abs/2606.23950)
 :rocket: [Project page](https://qianwangx.github.io/DivRL/)
 
 We propose a post-training RL framework that jointly optimizes identity consistency and structural diversity simultaneously by leveraging disentangled visual features from a robust similarity model MTG.
@@ -99,9 +99,9 @@ python scripts/inference.py --image_path PATH_TO_YOUR_REF_IMAGE --prompt TEXT_PR
 If you find this work useful, please cite:
 ```bibtex
 @article{wang2025divrl,
-  title     = {Beyond Pixel Mimicry: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation},
+  title     = {DivRL: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation},
   author    = {Wang, Qian and Li, Zhenyu and Eldesokey, Abdelrahman and Wonka, Peter},
-  journal   = {arXiv preprint arXiv:2500.00000},
-  year      = {2025}
+  journal   = {arXiv preprint arXiv:2606.23950},
+  year      = {2026}
 }
 ```
