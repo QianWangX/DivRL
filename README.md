@@ -46,7 +46,7 @@ reward  # for reward server
 The dataset is stored in the HF repo [QWW/Syncd_filtered](https://huggingface.co/datasets/QWW/Syncd_filtered). The dataset can be automatically downloaded once the training starts. 
 
 ## 3. Two-stage Training
-We provide the pretrained LoRA weights at [here](https://huggingface.co/QWW/DivRL). Stage 1 is training with nSSM only; Stage 2 is training with nSSM as the main objective, while VSM serves as a consistency gate.
+We provide the pretrained LoRA weights at [QWW/DivRL](https://huggingface.co/QWW/DivRL). Stage 1 is training with nSSM only; Stage 2 is training with nSSM as the main objective, while VSM serves as a consistency gate.
 
 We report the training setup on 8A100 80GB GPUs. We use the first GPU to hold the remote servers, and rest of the sever GPUs are for RL training. 
 We first launch the reward server:
