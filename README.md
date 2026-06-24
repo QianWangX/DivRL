@@ -1,4 +1,4 @@
-# 🎨 DivRL: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation
+# 🎨 DivRL: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation (ECCV 2026)
 This is the official implementation of paper **DivRL: Disentangled Self-Similarity Rewards for Diverse Subject-Driven Generation**
 [![arXiv](https://img.shields.io/badge/arXiv-<2606.23950>-<COLOR>.svg)](https://arxiv.org/abs/2606.23950)
 :rocket: [Project page](https://qianwangx.github.io/DivRL/)
