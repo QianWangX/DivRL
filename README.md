@@ -5,7 +5,7 @@ This is the official implementation of paper **DivRL: Disentangled Self-Similari
 
 We propose a post-training RL framework that jointly optimizes identity consistency and structural diversity simultaneously by leveraging disentangled visual features from a robust similarity model MTG.
 
-## 1. Set up environment
+## 1. Environment setup
 First set up the environment for DivRL:
 ```
 git clone https://github.com/qianwangx/DivRL
